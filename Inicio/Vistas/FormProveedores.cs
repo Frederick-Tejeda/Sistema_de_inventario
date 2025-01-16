@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Inicio
 {//Pantalla de Proveedores
-    public partial class FormProveedor : Form
+    public partial class FormProveedores : Form
     {
-        public FormProveedor()
+        public FormProveedores()
         {
             InitializeComponent();
         }
@@ -39,14 +39,14 @@ namespace Inicio
 
         private void lkCat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {//Acceder a categoría
-            FormCategoria formCategoria = new FormCategoria();
+            FormCategorias formCategoria = new FormCategorias();
             this.Hide();
             formCategoria.Show();
         }
 
         private void lkProd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {//Acedder a los productos
-            FormProd prod = new FormProd();
+            FormProductos prod = new FormProductos();
             this.Hide(); 
             prod.Show();
         }
@@ -58,7 +58,7 @@ namespace Inicio
 
         private void lkProv_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {//Acceder a proveedores
-            FormProveedor formProveedor = new FormProveedor();
+            FormProveedores formProveedor = new FormProveedores();
             this.Hide();
             formProveedor.Show();
         }

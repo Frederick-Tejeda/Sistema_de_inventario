@@ -1,6 +1,6 @@
 ﻿namespace Inicio
 {
-    partial class FormProveedor
+    partial class FormProveedores
     {
         /// <summary>
         /// Required designer variable.

@@ -48,9 +48,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(172, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(732, 468);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -58,10 +58,10 @@
             // tbUsuario
             // 
             this.tbUsuario.Location = new System.Drawing.Point(252, 206);
-            this.tbUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(203, 31);
-            this.tbUsuario.TabIndex = 5;
+            this.tbUsuario.TabIndex = 1;
             this.tbUsuario.TextChanged += new System.EventHandler(this.tbUsuario_TextChanged);
             // 
             // label3
@@ -78,21 +78,21 @@
             // tbpassword
             // 
             this.tbpassword.Location = new System.Drawing.Point(252, 288);
-            this.tbpassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbpassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbpassword.Name = "tbpassword";
             this.tbpassword.PasswordChar = '*';
             this.tbpassword.Size = new System.Drawing.Size(203, 31);
-            this.tbpassword.TabIndex = 1;
+            this.tbpassword.TabIndex = 2;
             this.tbpassword.TextChanged += new System.EventHandler(this.tbpassword_TextChanged);
             // 
             // btnInicio
             // 
             this.btnInicio.AutoSize = true;
             this.btnInicio.Location = new System.Drawing.Point(252, 348);
-            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(4);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(201, 44);
-            this.btnInicio.TabIndex = 2;
+            this.btnInicio.TabIndex = 3;
             this.btnInicio.Text = "iniciar Sesión";
             this.btnInicio.UseVisualStyleBackColor = true;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
@@ -125,7 +125,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInicio";
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Form1_Load);

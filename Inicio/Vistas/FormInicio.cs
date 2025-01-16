@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inicio.Vistas.Modelos;
 
 
 /*Significado de siglas:
@@ -21,9 +22,11 @@ namespace Inicio
     //Ventana de inicio de sesión
     public partial class FormInicio : Form
     {
+        Database db = new Database();
         public FormInicio()
         {
             InitializeComponent();
+            db.InitializeDatabase();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,19 +37,17 @@ namespace Inicio
         private void btnInicio_Click(object sender, EventArgs e)
         {
             //Condición de entrada al sistema
-
-            if (tbpassword.Text == "1234" && tbUsuario.Text == "admin"){
-
-                FormProd formProd = new FormProd();
-                MessageBox.Show("Bienvenido");
+            if (db.ValidateUser(tbUsuario.Text, tbpassword.Text))
+            {
+                MessageBox.Show("Inicio de sesión exitoso.");
+                // Aquí podrías abrir otro formulario
+                FormProductos formProductos = new FormProductos();
                 this.Hide();
-                formProd.ShowDialog();
+                formProductos.ShowDialog();
             }
-            
-            else {
-                MessageBox.Show("Hubo algún error ¡Intente nuevamente!");
-                tbUsuario.Clear();
-                tbpassword.Clear();
+            else
+            {
+                MessageBox.Show("Credenciales inválidas.");
             }
         }
 
