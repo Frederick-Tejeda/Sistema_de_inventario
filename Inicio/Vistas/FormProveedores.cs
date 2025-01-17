@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inicio.Modelos;
 using Inicio.Controladores;
+using Inicio.Vistas;
 
 namespace Inicio
 {//Pantalla de Proveedores
@@ -234,6 +235,41 @@ namespace Inicio
             {
                 MessageBox.Show($"Algo no esta bien, intente mas tarde...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormCategorias formCategorias = new FormCategorias();
+            this.Hide();
+            formCategorias.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormProveedores formProveedores = new FormProveedores();
+            this.Hide();
+            formProveedores.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormProductos formProductos = new FormProductos();
+            this.Hide();
+            formProductos.Show();
+        }
+
+        private void linkConsultas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormConsultas formConsultas = new FormConsultas();
+            this.Hide();
+            formConsultas.Show();
+        }
+
+        private void linkReportes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormReportes formReportes = new FormReportes();
+            this.Hide();
+            formReportes.Show();
         }
     }
 }

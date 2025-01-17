@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inicio.Controladores;
 using Inicio.Modelos;
+using Inicio.Vistas;
 
 namespace Inicio
 {
@@ -264,6 +265,20 @@ namespace Inicio
             {
                 MessageBox.Show($"Algo no esta bien, intente mas tarde...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void linkConsultas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormConsultas formConsultas = new FormConsultas();
+            this.Hide();
+            formConsultas.Show();
+        }
+
+        private void linkReportes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormReportes formReportes = new FormReportes();
+            this.Hide();
+            formReportes.Show();
         }
     }
 }
