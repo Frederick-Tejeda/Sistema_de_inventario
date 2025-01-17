@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Inicio.Modelos;
 
 namespace Inicio.Controladores
 {
@@ -18,11 +17,11 @@ namespace Inicio.Controladores
                 using (var connection = new SQLiteConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "INSERT OR IGNORE INTO Categoria (nombreCategoria, idCategoria, descripcionCategoria) VALUES (@nombreCategoria, @idCategoria, @descripcionCategoria)";
+                    string query = "INSERT OR IGNORE INTO Categoria (nombreCategoria, descripcionCategoria) VALUES (@nombreCategoria, @descripcionCategoria)";
                     using (var command = new SQLiteCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@nombreCategoria", categoria.nombreCategoria);
-                        command.Parameters.AddWithValue("@idCategoria", categoria.idCategoria);
+                        //command.Parameters.AddWithValue("@idCategoria", categoria.idCategoria);
                         command.Parameters.AddWithValue("@descripcionCategoria", categoria.descripcionCategoria);
 
                         command.ExecuteNonQuery();
@@ -67,27 +66,27 @@ namespace Inicio.Controladores
                         {
                             if (reader.Read()) // Leer el resultado (si existe un producto con ese ID)
                             {
-                                query = "UPDATE Categoria SET nombreCategoria = @nombre, descripcionCategoria = @descripcionCategoria WHERE idCategoria = @id";
+                                query = "UPDATE Categoria SET nombreCategoria = @nombreCategoria, descripcionCategoria = @descripcionCategoria WHERE idCategoria = @idCategoria";
                                 using (var nuevoCommand = new SQLiteCommand(query, connection))
                                 {
-                                    command.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
-                                    command.Parameters.AddWithValue("@idCategoria", idCategoria);
-                                    command.Parameters.AddWithValue("@descripcionCategoria", descripcionCategoria);
+                                    nuevoCommand.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+                                    nuevoCommand.Parameters.AddWithValue("@idCategoria", idCategoria);
+                                    nuevoCommand.Parameters.AddWithValue("@descripcionCategoria", descripcionCategoria);
 
                                     nuevoCommand.ExecuteNonQuery();
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("No se encontró ningún producto con ese ID.");
-                                MessageBox.Show($"No se encontro el producto con id {idCategoria}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                Console.WriteLine("No se encontró ninguna categoria con ese ID.");
+                                MessageBox.Show($"No se encontro la categoria con id {idCategoria}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                     }
 
                 }
             }
-            public List<Categoria> BuscaCategoria(string dato, string tipoDato)
+            public List<Categoria> BuscarCategoria(string dato, string tipoDato)
             {
                 List<Categoria> categorias = new List<Categoria>();
                 using (var connection = new SQLiteConnection(connectionString))

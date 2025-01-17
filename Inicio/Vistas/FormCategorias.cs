@@ -104,17 +104,97 @@ namespace Inicio
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            string id = idTxt.Text;
+            string nombre = nombreTxt.Text;
 
+            string[] resultado = validacionDeCampos.ValidarCategorias(nombre, "", "select", id);
+
+            if (resultado[0] == "error")
+            {
+                MessageBox.Show(resultado[1], "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (resultado[0] == "success")
+            {
+                List<Categoria> categorias;
+                if (string.IsNullOrWhiteSpace(id))
+                {
+                    string tipoDato = "nombre";
+                    categorias = categoriasControlador.BuscarCategoria(nombre, tipoDato);
+                    dataGridView1.DataSource = categorias;
+
+                }
+                else if (string.IsNullOrWhiteSpace(nombre))
+                {
+                    string tipoDato = "id";
+                    categorias = categoriasControlador.BuscarCategoria(id, tipoDato);
+                    dataGridView1.DataSource = categorias;
+                }
+                else
+                {
+                    MessageBox.Show($"Algo sucedio mal al buscar producto...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Algo no esta bien, intente mas tarde...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            string nombre = nombreTxt.Text;
+            string descripcion = descripcionTxt.Text;
+            string id = idTxt.Text;
 
+            string[] resultado = validacionDeCampos.ValidarCategorias(nombre, descripcion, "update", id);
+
+            if (resultado[0] == "error")
+            {
+                MessageBox.Show(resultado[1], "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (resultado[0] == "success")
+            {
+                categoriasControlador.ActualizarCategoria(nombre, int.Parse(id), descripcion);
+                MessageBox.Show("Categoria actualizada correctamente.");
+                CargarCategorias();
+            }
+            else
+            {
+                MessageBox.Show($"Algo no esta bien, intente mas tarde...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            string id = idTxt.Text;
 
+            string[] resultado = validacionDeCampos.ValidarCategorias("", "", "delete", id);
+
+            if (resultado[0] == "error")
+            {
+                MessageBox.Show(resultado[1], "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (resultado[0] == "success")
+            {
+                List<Categoria> categoriasAntes, categoriasAhora;
+                categoriasAntes = categoriasControlador.ObtenerCategorias();
+                categoriasControlador.EliminarCategoria(id);
+                categoriasAhora = categoriasControlador.ObtenerCategorias();
+                if ((categoriasAntes.Count - categoriasAhora.Count) == 1)
+                {
+                    MessageBox.Show("Categoria eliminada correctamente.");
+                    CargarCategorias();
+                    LimpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show($"Algo sucedio mal al eliminar categoria...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Algo no esta bien, intente mas tarde...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

@@ -86,7 +86,7 @@ namespace Inicio
             }
             else
             {
-                MessageBox.Show($"Algo sucedio mal al actualizar producto. {resultado[0]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Algo sucedio mal al actualizar producto...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -153,9 +153,6 @@ namespace Inicio
                     proveedorProductoTxt.Text = filaSeleccionada.Cells["idProveedor"].Value?.ToString();
                     categoriaProductoTxt.Text = filaSeleccionada.Cells["idCategoria"].Value?.ToString();
                     idProductoTxt.Text = filaSeleccionada.Cells["idProducto"].Value?.ToString();
-
-                        // Si tienes más campos (ej. Proveedor), agrégalos aquí:
-                        // txtProveedor.Text = filaSeleccionada.Cells["Proveedor"].Value?.ToString();
                     }
                     else{
                         LimpiarCampos();
@@ -195,7 +192,7 @@ namespace Inicio
             }
             else
             {   
-                MessageBox.Show($"Algo no esta bien, intente mas tardeo. {resultado[0]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Algo no esta bien, intente mas tardeo...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -227,12 +224,12 @@ namespace Inicio
                 }
                 else
                 {
-                    MessageBox.Show($"Algo sucedio mal al buscar producto. {resultado[1]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Algo sucedio mal al buscar producto...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {   
-                MessageBox.Show($"Algo no esta bien, intente mas tarde. {resultado[1]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Algo no esta bien, intente mas tarde...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -260,12 +257,12 @@ namespace Inicio
                 }
                 else
                 {
-                    MessageBox.Show($"Algo sucedio mal al eliminar producto. {resultado[1]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Algo sucedio mal al eliminar producto...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show($"Algo no esta bien, intente mas tarde. {resultado[1]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Algo no esta bien, intente mas tarde...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

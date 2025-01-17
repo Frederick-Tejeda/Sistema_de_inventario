@@ -67,8 +67,10 @@
   <ItemGroup>
     <Compile Include="Controladores\CategoriasControlador.cs" />
     <Compile Include="Controladores\ProductosControlador.cs" />
+    <Compile Include="Controladores\ProveedoresControlador.cs" />
     <Compile Include="Modelos\ModeloCategorias.cs" />
     <Compile Include="Modelos\ModeloProductos.cs" />
+    <Compile Include="Modelos\ModeloProveedores.cs" />
     <Compile Include="Modelos\ValidacionDeCampos.cs" />
     <Compile Include="Vistas\FormCategorias.cs">
       <SubType>Form</SubType>
